@@ -1,7 +1,14 @@
 # YahooFinanceAPI
+
 C# Client Library used to interact with the Yahoo Finance API
 
 <b>Finance Quotes API for Yahoo Finance (C#)</b>
+
+<h1>How to Install</h1>
+
+`PM> Install-Package YahooFinanceClient`
+
+<h1>What is Provided?</h1>
 
 This library provides some methods that should make it easy to communicate with the Yahoo Finance API
 
