@@ -43,8 +43,8 @@ namespace YahooFinanceClient.CsvParser
                 FiftyTwoWeekLow = CleanData(splitData[7]),
                 FiftyTwoWeekLowChange = CleanData(splitData[8]),
                 FiftyTwoWeekHighChange = CleanData(splitData[9]),
-                FiftyTwoWeekLowChangePercent = CleanData(splitData[10]),
-                FiftyTwoWeekHighChangePercent = CleanData(splitData[11]),
+                FiftyTwoWeekLowChangePercent = CleanPercent(splitData[10]),
+                FiftyTwoWeekHighChangePercent = CleanPercent(splitData[11]),
                 FiftyTwoWeekRange = splitData[12],
             };
         }
@@ -73,6 +73,24 @@ namespace YahooFinanceClient.CsvParser
             }
 
             return Convert.ToDecimal(data);
+        }
+
+        private decimal? CleanPercent(string data)
+        {
+            if (data == "N/A")
+            {
+                return null;
+            }
+
+            var direction = data.ToCharArray()[0];
+            var number = data.Substring(1, data.Length - 2);
+
+            if(direction == '-')
+            {
+                return -Convert.ToDecimal(number);
+            }
+
+            return Convert.ToDecimal(number);
         }
     }
 }

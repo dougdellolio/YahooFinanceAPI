@@ -14,7 +14,7 @@ namespace YahooFinanceClient.Specs.CsvParser
             Establish context = () =>
             {
                 The<IWebClient>().WhenToldTo(p => p.DownloadFile("AAPL", "abb2b3pokjj5k4j6k5w"))
-                    .Return("136.66,136.61,130.0,132.0,136.53,135.91,145.91,138.91,131.91,115.91,138.91,131.91,115.91-130.01");
+                    .Return("136.66,136.61,130.0,132.0,136.53,135.91,145.91,138.91,131.91,115.91,-66.7%,+45.5%,115.91-130.01");
 
                 The<IWebClient>().WhenToldTo(p => p.DownloadFile("AAPL", "va5b6k3a2"))
                     .Return("100000, 120, 130, 130000, 145000");
@@ -35,8 +35,8 @@ namespace YahooFinanceClient.Specs.CsvParser
                 result.PricingData.FiftyTwoWeekLow.ShouldEqual(138.91M);
                 result.PricingData.FiftyTwoWeekLowChange.ShouldEqual(131.91M);
                 result.PricingData.FiftyTwoWeekHighChange.ShouldEqual(115.91M);
-                result.PricingData.FiftyTwoWeekLowChangePercent.ShouldEqual(138.91M);
-                result.PricingData.FiftyTwoWeekHighChangePercent.ShouldEqual(131.91M);
+                result.PricingData.FiftyTwoWeekLowChangePercent.ShouldEqual(-66.7M);
+                result.PricingData.FiftyTwoWeekHighChangePercent.ShouldEqual(45.5M);
                 result.PricingData.FiftyTwoWeekRange.ShouldEqual("115.91-130.01");
             };
 
