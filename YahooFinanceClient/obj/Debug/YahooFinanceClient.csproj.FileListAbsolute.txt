@@ -1,0 +1,12 @@
+C:\Users\Doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI\bin\Debug\YahooFinanceClient.dll.config
+C:\Users\Doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI\bin\Debug\YahooFinanceClient.dll
+C:\Users\Doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI\bin\Debug\YahooFinanceClient.pdb
+C:\Users\Doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI\obj\Debug\YahooFinanceClient.csprojResolveAssemblyReference.cache
+C:\Users\Doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI\obj\Debug\YahooFinanceClient.dll
+C:\Users\Doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI\obj\Debug\YahooFinanceClient.pdb
+C:\Users\Doug\Documents\Visual Studio 2015\Projects\YahooFinanceClient\YahooFinanceClient\bin\Debug\YahooFinanceClient.dll.config
+C:\Users\Doug\Documents\Visual Studio 2015\Projects\YahooFinanceClient\YahooFinanceClient\bin\Debug\YahooFinanceClient.dll
+C:\Users\Doug\Documents\Visual Studio 2015\Projects\YahooFinanceClient\YahooFinanceClient\bin\Debug\YahooFinanceClient.pdb
+C:\Users\Doug\Documents\Visual Studio 2015\Projects\YahooFinanceClient\YahooFinanceClient\obj\Debug\YahooFinanceClient.csprojResolveAssemblyReference.cache
+C:\Users\Doug\Documents\Visual Studio 2015\Projects\YahooFinanceClient\YahooFinanceClient\obj\Debug\YahooFinanceClient.dll
+C:\Users\Doug\Documents\Visual Studio 2015\Projects\YahooFinanceClient\YahooFinanceClient\obj\Debug\YahooFinanceClient.pdb

@@ -1,0 +1,15 @@
+c:\users\doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI.Specs\obj\Debug\YahooFinanceAPI.Specs.csprojResolveAssemblyReference.cache
+c:\users\doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI.Specs\bin\Debug\YahooFinanceAPI.Specs.dll
+c:\users\doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI.Specs\bin\Debug\YahooFinanceAPI.Specs.pdb
+c:\users\doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI.Specs\bin\Debug\Machine.Fakes.Adapters.NSubstitute.dll
+c:\users\doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI.Specs\bin\Debug\Machine.Fakes.dll
+c:\users\doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI.Specs\bin\Debug\Machine.Specifications.dll
+c:\users\doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI.Specs\bin\Debug\Machine.Specifications.Should.dll
+c:\users\doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI.Specs\bin\Debug\NSubstitute.dll
+c:\users\doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI.Specs\bin\Debug\YahooFinanceAPI.exe
+c:\users\doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI.Specs\bin\Debug\YahooFinanceAPI.pdb
+c:\users\doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI.Specs\bin\Debug\Machine.Fakes.xml
+c:\users\doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI.Specs\bin\Debug\Machine.Fakes.Adapters.NSubstitute.xml
+c:\users\doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI.Specs\bin\Debug\NSubstitute.xml
+c:\users\doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI.Specs\obj\Debug\YahooFinanceAPI.Specs.dll
+c:\users\doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI.Specs\obj\Debug\YahooFinanceAPI.Specs.pdb

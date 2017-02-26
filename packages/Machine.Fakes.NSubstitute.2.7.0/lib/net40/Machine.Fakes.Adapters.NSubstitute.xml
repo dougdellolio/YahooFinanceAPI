@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Machine.Fakes.Adapters.NSubstitute</name>
+    </assembly>
+    <members>
+        <member name="T:Machine.Fakes.Adapters.NSubstitute.NSubstituteEngine">
+            <summary>
+              An implementation of <see cref="T:Machine.Fakes.IFakeEngine"/>
+              using the NSubstitute framework.
+            </summary>
+        </member>
+        <member name="M:Machine.Fakes.Adapters.NSubstitute.NSubstituteEngine.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Machine.Fakes.Adapters.NSubstitute.NSubstituteEngine.CreateFake(System.Type,System.Object[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:Machine.Fakes.Adapters.NSubstitute.NSubstituteEngine.PartialMock``1(System.Object[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:Machine.Fakes.Adapters.NSubstitute.NSubstituteEngine.OnSetUpQueryBehaviorFor``2(``0,System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Machine.Fakes.Adapters.NSubstitute.NSubstituteEngine.OnSetUpCommandBehaviorFor``1(``0,System.Linq.Expressions.Expression{System.Action{``0}})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Machine.Fakes.Adapters.NSubstitute.NSubstituteEngine.OnVerifyBehaviorWasNotExecuted``1(``0,System.Linq.Expressions.Expression{System.Action{``0}})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Machine.Fakes.Adapters.NSubstitute.NSubstituteEngine.OnVerifyBehaviorWasExecuted``1(``0,System.Linq.Expressions.Expression{System.Action{``0}})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Machine.Fakes.WithFakes">
+            <inheritdoc/>
+        </member>
+        <member name="T:Machine.Fakes.WithSubject`1">
+            <summary>
+            Base class that adds auto mocking (grasp), I mean auto faking capabilities
+            to Machine.Specifications. 
+            </summary>
+            <typeparam name="TSubject">
+            The subject for the specification. This is the type that is created by the
+            specification for you.
+            </typeparam>
+        </member>
+    </members>
+</doc>
