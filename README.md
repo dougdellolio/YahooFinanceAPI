@@ -1,5 +1,5 @@
 # YahooFinanceAPI
-C# .NET Client API for Yahoo Finance
+C# Client Library used to interact with the Yahoo Finance API
 
 <b>Finance Quotes API for Yahoo Finance (C#)</b>
 
