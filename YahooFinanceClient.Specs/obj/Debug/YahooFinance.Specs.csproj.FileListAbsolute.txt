@@ -1,1 +1,0 @@
-C:\Users\Doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI.Specs\obj\Debug\YahooFinance.Specs.csprojResolveAssemblyReference.cache

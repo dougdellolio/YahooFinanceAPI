@@ -1,6 +1,0 @@
-c:\users\doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI\bin\Debug\YahooFinanceAPI.exe.config
-c:\users\doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI\bin\Debug\YahooFinanceAPI.exe
-c:\users\doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI\bin\Debug\YahooFinanceAPI.pdb
-c:\users\doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI\obj\Debug\YahooFinanceAPI.exe
-c:\users\doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI\obj\Debug\YahooFinanceAPI.pdb
-c:\users\doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI\obj\Debug\YahooFinanceAPI.csprojResolveAssemblyReference.cache

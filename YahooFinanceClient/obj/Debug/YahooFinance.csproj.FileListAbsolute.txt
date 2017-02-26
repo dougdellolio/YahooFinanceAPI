@@ -1,5 +1,0 @@
-C:\Users\Doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI\bin\Debug\YahooFinance.dll.config
-C:\Users\Doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI\bin\Debug\YahooFinance.dll
-C:\Users\Doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI\bin\Debug\YahooFinance.pdb
-C:\Users\Doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI\obj\Debug\YahooFinance.dll
-C:\Users\Doug\documents\visual studio 2015\Projects\YahooFinanceAPI\YahooFinanceAPI\obj\Debug\YahooFinance.pdb
