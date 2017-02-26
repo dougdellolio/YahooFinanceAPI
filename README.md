@@ -5,8 +5,8 @@ C# Client Library used to interact with the Yahoo Finance API
 
 This library provides some methods that should make it easy to communicate with the Yahoo Finance API
 
-|            Pricing            | Volume               |
-|:-----------------------------:|----------------------|
+| Pricing                       | Volume               |
+|-------------------------------|----------------------|
 | Ask                           | Volume               |
 | Bid                           | Ask Size             |
 | Ask Realtime                  | Bid Size             |
