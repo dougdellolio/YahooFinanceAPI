@@ -5,18 +5,21 @@ C# Client Library used to interact with the Yahoo Finance API
 
 This library provides some methods that should make it easy to communicate with the Yahoo Finance API
 
-|     Pricing    | Dividends          | Volume               | Market                |
-|:--------------:|--------------------|----------------------|-----------------------|
-| Ask            | Dividend Yield     | Volume               | Information           |
-| Bid            | Dividend per Share | Ask Size             | Market Capitilization |
-| Ask Realtime   | Dividend Pay Date  | Bid Size             | Market Cap            |
-| Bid Realtime   | Ex-Dividend Date   | Last Trade Size      | Float Shares          |
-| Previous Close |                    | Average Daily Volume | Company Name          |
-| Open           |                    |                      | Notes                 |
-|                |                    |                      | Symbol                |
-|                |                    |                      | Shares Owned          |
-|                |                    |                      | Exchange              |
-|                |                    |                      | Shares Outstanding    |
+|            Pricing            | Volume               |
+|:-----------------------------:|----------------------|
+| Ask                           | Volume               |
+| Bid                           | Ask Size             |
+| Ask Realtime                  | Bid Size             |
+| Bid Realtime                  | Last Trade Size      |
+| Previous Close                | Average Daily Volume |
+| Open                          |                      |
+| 52 Week High                  |                      |
+| 52 Week Low                   |                      |
+| 52 Week Low Change            |                      |
+| 52 Week High Change           |                      |
+| 52 Week Low Change (Percent)  |                      |
+| 52 Week High Change (Percent) |                      |
+| 52 Week Range                 |                      |
 
 <h1>Examples</h1>
 

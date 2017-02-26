@@ -27,7 +27,7 @@ namespace YahooFinanceClient.CsvParser
 
         private PricingData RetrievePricingData(string ticker)
         {
-            var stockData = webClient.DownloadFile(ticker, "abb2b3po");
+            var stockData = webClient.DownloadFile(ticker, "abb2b3pokjj5k4j6k5w");
 
             var splitData = stockData.Split(',');
 
@@ -39,6 +39,13 @@ namespace YahooFinanceClient.CsvParser
                 BidRealTime = CleanData(splitData[3]),
                 PreviousClose = CleanData(splitData[4]),
                 Open = CleanData(splitData[5]),
+                FiftyTwoWeekHigh = CleanData(splitData[6]),
+                FiftyTwoWeekLow = CleanData(splitData[7]),
+                FiftyTwoWeekLowChange = CleanData(splitData[8]),
+                FiftyTwoWeekHighChange = CleanData(splitData[9]),
+                FiftyTwoWeekLowChangePercent = CleanData(splitData[10]),
+                FiftyTwoWeekHighChangePercent = CleanData(splitData[11]),
+                FiftyTwoWeekRange = splitData[12],
             };
         }
 
