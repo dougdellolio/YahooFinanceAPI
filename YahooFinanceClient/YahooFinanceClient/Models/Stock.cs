@@ -2,6 +2,8 @@
 {
     public class Stock
     {
-        public Pricing Pricing { get; set; }
+        public PricingData PricingData { get; set; }
+
+        public VolumeData VolumeData { get; set; }
     }
 }

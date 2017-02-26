@@ -15,21 +15,23 @@ namespace YahooFinanceClient.CsvParser
 
         public Stock RetrieveStock(string ticker)
         {
-            var pricing = RetrievePricing(ticker);
+            var pricingData = RetrievePricingData(ticker);
+            var volumeData = RetrieveVolumeData(ticker);
 
             return new Stock 
             {
-                Pricing = pricing
+                PricingData = pricingData,
+                VolumeData = volumeData
             };
         }
 
-        private Pricing RetrievePricing(string ticker)
+        private PricingData RetrievePricingData(string ticker)
         {
             var stockData = webClient.DownloadFile(ticker, "abb2b3po");
 
             var splitData = stockData.Split(',');
 
-            return new Pricing
+            return new PricingData
             {
                 Ask = CleanData(splitData[0]),
                 Bid = CleanData(splitData[1]),
@@ -37,6 +39,22 @@ namespace YahooFinanceClient.CsvParser
                 BidRealTime = CleanData(splitData[3]),
                 PreviousClose = CleanData(splitData[4]),
                 Open = CleanData(splitData[5]),
+            };
+        }
+
+        private VolumeData RetrieveVolumeData(string ticker)
+        {
+            var stockData = webClient.DownloadFile(ticker, "va5b6k3a2");
+
+            var splitData = stockData.Split(',');
+
+            return new VolumeData
+            {
+                CurrentVolume = CleanData(splitData[0]),
+                AskSize= CleanData(splitData[1]),
+                BidSize = CleanData(splitData[2]),
+                LastTradeSize = CleanData(splitData[3]),
+                AverageDailyVolume = CleanData(splitData[4]),
             };
         }
 
