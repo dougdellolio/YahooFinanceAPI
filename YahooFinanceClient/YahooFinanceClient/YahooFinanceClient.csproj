@@ -50,9 +50,9 @@
   <ItemGroup>
     <Compile Include="CsvParser\CsvParser.cs" />
     <Compile Include="CsvParser\ICsvParser.cs" />
-    <Compile Include="Models\Date.cs" />
-    <Compile Include="Models\Pricing.cs" />
+    <Compile Include="Models\PricingData.cs" />
     <Compile Include="Models\Stock.cs" />
+    <Compile Include="Models\VolumeData.cs" />
     <Compile Include="WebClient\WebClient.cs" />
     <Compile Include="WebClient\IWebClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,6 +1,6 @@
 ﻿namespace YahooFinanceClient.Models
 {
-    public class Pricing
+    public class PricingData
     {
         public decimal? Ask { get; set; }
                

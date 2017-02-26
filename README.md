@@ -24,19 +24,19 @@ This library provides some methods that should make it easy to communicate with 
 var yahooFinanceClient = new YahooFinance();
 var apple = yahooFinanceClient.RetrieveStock("AAPL");
 
-Console.WriteLine($"Ask Price is {apple.Pricing.Ask}");
-Console.WriteLine($"Bid Price is {apple.Pricing.Bid}");
-Console.WriteLine($"Open Price is {apple.Pricing.Open}");
-Console.WriteLine($"Previous Close is {apple.Pricing.PreviousClose}");
+Console.WriteLine($"Ask Price is {apple.PricingData.Ask}");
+Console.WriteLine($"Bid Price is {apple.PricingData.Bid}");
+Console.WriteLine($"Open Price is {apple.PricingData.Open}");
+Console.WriteLine($"Previous Close is {apple.PricingData.PreviousClose}");
 ````
 
 ````
 var yahooFinanceClient = new YahooFinance();
 var apple = yahooFinanceClient.RetrieveStock("AAPL");
 
-Console.WriteLine($"Volume is {apple.Volume.Volume}");
-Console.WriteLine($"Ask Size is {apple.Volume.AskSize}");
-Console.WriteLine($"Bid Size is {apple.Volume.BidSize}");
-Console.WriteLine($"Last Trade Size is {apple.Volume.LastTradeSize}");
-Console.WriteLine($"Average Daily Volume is {apple.Volume.AverageDailyVolume}");
+Console.WriteLine($"Volume is {apple.VolumeData.CurrentVolume}");
+Console.WriteLine($"Ask Size is {apple.VolumeData.AskSize}");
+Console.WriteLine($"Bid Size is {apple.VolumeData.BidSize}");
+Console.WriteLine($"Last Trade Size is {apple.VolumeData.LastTradeSize}");
+Console.WriteLine($"Average Daily Volume is {apple.VolumeData.AverageDailyVolume}");
 ````            
