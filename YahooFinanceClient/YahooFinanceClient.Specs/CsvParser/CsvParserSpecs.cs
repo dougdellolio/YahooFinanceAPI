@@ -91,7 +91,7 @@ namespace YahooFinanceClient.Specs.CsvParser
                     .Return("N/A,N/A,N/A,N/A,N/A,N/A");
 
                 The<IWebClient>().WhenToldTo(p => p.DownloadFile("AAPL", "ydr1q"))
-                    .Return("N/A,N/A,N/A,N/A");
+                    .Return("N/A,N/A,N/A\n,N/A\n");
             };
 
             Because of = () =>
