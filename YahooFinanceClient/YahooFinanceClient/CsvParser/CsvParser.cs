@@ -109,7 +109,9 @@ namespace YahooFinanceClient.CsvParser
                 return null;
             }
 
-            return DateTime.Parse(data);
+            var dateWithoutQuotes = data.Replace("\"", string.Empty);
+
+            return DateTime.Parse(dateWithoutQuotes);
         }
 
         private decimal? CleanData(string data)

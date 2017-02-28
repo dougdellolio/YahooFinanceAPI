@@ -24,7 +24,7 @@ namespace YahooFinanceClient.Specs.CsvParser
                     .Return("136.8,122.2,141.4,136.6,178.8,133.3");
 
                 The<IWebClient>().WhenToldTo(p => p.DownloadFile("AAPL", "ydr1q"))
-                    .Return("12.1,10.4,2/7/2017,2/16/2017");
+                    .Return("12.1,10.4,\"2/7/2017\",\"2/16/2017\"");
             };
 
             Because of = () =>
