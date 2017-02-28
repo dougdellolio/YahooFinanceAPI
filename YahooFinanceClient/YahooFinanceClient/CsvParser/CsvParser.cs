@@ -17,11 +17,15 @@ namespace YahooFinanceClient.CsvParser
         {
             var pricingData = RetrievePricingData(ticker);
             var volumeData = RetrieveVolumeData(ticker);
+            var averagesData = RetrieveAverageData(ticker);
+            var dividendData = RetrieveDividendData(ticker);
 
-            return new Stock 
+            return new Stock
             {
                 PricingData = pricingData,
-                VolumeData = volumeData
+                VolumeData = volumeData,
+                AverageData = averagesData,
+                DividendData = dividendData
             };
         }
 
@@ -33,18 +37,18 @@ namespace YahooFinanceClient.CsvParser
 
             return new PricingData
             {
-                Ask = CleanData(splitData[0]),
-                Bid = CleanData(splitData[1]),
-                AskRealTime = CleanData(splitData[2]),
-                BidRealTime = CleanData(splitData[3]),
-                PreviousClose = CleanData(splitData[4]),
-                Open = CleanData(splitData[5]),
-                FiftyTwoWeekHigh = CleanData(splitData[6]),
-                FiftyTwoWeekLow = CleanData(splitData[7]),
-                FiftyTwoWeekLowChange = CleanData(splitData[8]),
-                FiftyTwoWeekHighChange = CleanData(splitData[9]),
-                FiftyTwoWeekLowChangePercent = CleanPercent(splitData[10]),
-                FiftyTwoWeekHighChangePercent = CleanPercent(splitData[11]),
+                Ask = ConvertStringToDecimal(splitData[0]),
+                Bid = ConvertStringToDecimal(splitData[1]),
+                AskRealTime = ConvertStringToDecimal(splitData[2]),
+                BidRealTime = ConvertStringToDecimal(splitData[3]),
+                PreviousClose = ConvertStringToDecimal(splitData[4]),
+                Open = ConvertStringToDecimal(splitData[5]),
+                FiftyTwoWeekHigh = ConvertStringToDecimal(splitData[6]),
+                FiftyTwoWeekLow = ConvertStringToDecimal(splitData[7]),
+                FiftyTwoWeekLowChange = ConvertStringToDecimal(splitData[8]),
+                FiftyTwoWeekHighChange = ConvertStringToDecimal(splitData[9]),
+                FiftyTwoWeekLowChangePercent = ConvertStringToPercentDecimal(splitData[10]),
+                FiftyTwoWeekHighChangePercent = ConvertStringToPercentDecimal(splitData[11]),
                 FiftyTwoWeekRange = splitData[12],
             };
         }
@@ -57,17 +61,61 @@ namespace YahooFinanceClient.CsvParser
 
             return new VolumeData
             {
-                CurrentVolume = CleanData(splitData[0]),
-                AskSize= CleanData(splitData[1]),
-                BidSize = CleanData(splitData[2]),
-                LastTradeSize = CleanData(splitData[3]),
-                AverageDailyVolume = CleanData(splitData[4]),
+                CurrentVolume = ConvertStringToDecimal(splitData[0]),
+                AskSize = ConvertStringToDecimal(splitData[1]),
+                BidSize = ConvertStringToDecimal(splitData[2]),
+                LastTradeSize = ConvertStringToDecimal(splitData[3]),
+                AverageDailyVolume = ConvertStringToDecimal(splitData[4]),
             };
         }
 
-        private decimal? CleanData(string data)
+        private AverageData RetrieveAverageData(string ticker)
         {
-            if(data == "N/A")
+            var stockData = webClient.DownloadFile(ticker, "ghl1m3m4t8");
+
+            var splitData = stockData.Split(',');
+
+            return new AverageData
+            {
+                DayHigh = ConvertStringToDecimal(splitData[0]),
+                DayLow = ConvertStringToDecimal(splitData[1]),
+                LastTradePrice = ConvertStringToDecimal(splitData[2]),
+                FiftyDayMovingAverage = ConvertStringToDecimal(splitData[3]),
+                TwoHundredDayMovingAverage = ConvertStringToDecimal(splitData[4]),
+                OneYearTargetPrice = ConvertStringToDecimal(splitData[5])
+            };
+        }
+
+        private DividendData RetrieveDividendData(string ticker)
+        {
+            var stockData = webClient.DownloadFile(ticker, "ydr1q");
+
+            var splitData = stockData.Split(',');
+
+            return new DividendData
+            {
+                DividendYield = ConvertStringToDecimal(splitData[0]),
+                DividendPerShare = ConvertStringToDecimal(splitData[1]),
+                DividendPayDate = ConvertStringToDate(splitData[2]),
+                ExDividendDate = ConvertStringToDate(splitData[3])
+            };
+        }
+
+        private DateTime? ConvertStringToDate(string data)
+        {
+            if (data == "N/A")
+            {
+                return null;
+            }
+
+            var dateWithoutQuotes = data.Replace("\"", string.Empty);
+
+            return DateTime.Parse(dateWithoutQuotes);
+        }
+
+        private decimal? ConvertStringToDecimal(string data)
+        {
+            if (data == "N/A")
             {
                 return null;
             }
@@ -75,7 +123,7 @@ namespace YahooFinanceClient.CsvParser
             return Convert.ToDecimal(data);
         }
 
-        private decimal? CleanPercent(string data)
+        private decimal? ConvertStringToPercentDecimal(string data)
         {
             if (data == "N/A")
             {
@@ -85,7 +133,7 @@ namespace YahooFinanceClient.CsvParser
             var direction = data.ToCharArray()[0];
             var number = data.Substring(1, data.Length - 2);
 
-            if(direction == '-')
+            if (direction == '-')
             {
                 return -Convert.ToDecimal(number);
             }

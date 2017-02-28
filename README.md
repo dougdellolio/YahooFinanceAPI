@@ -10,21 +10,21 @@ C# Client Library used to interact with the Yahoo Finance API
 
 This library provides some methods that should make it easy to communicate with the Yahoo Finance API
 
-| Pricing                       | Volume               |
-|-------------------------------|----------------------|
-| Ask                           | Volume               |
-| Bid                           | Ask Size             |
-| Ask Realtime                  | Bid Size             |
-| Bid Realtime                  | Last Trade Size      |
-| Previous Close                | Average Daily Volume |
-| Open                          |                      |
-| 52 Week High                  |                      |
-| 52 Week Low                   |                      |
-| 52 Week Low Change            |                      |
-| 52 Week High Change           |                      |
-| 52 Week Low Change (Percent)  |                      |
-| 52 Week High Change (Percent) |                      |
-| 52 Week Range                 |                      |
+|          Pricing Data         | Dividend Data      | Volume Data          | Average Data           |
+|:-----------------------------:|--------------------|----------------------|------------------------|
+| Ask                           | Dividend Yield     | Volume               | Day Low                |
+| Bid                           | Dividend per Share | Ask Size             | Day High               |
+| Ask Realtime                  | Dividend Pay Date  | Bid Size             | Last Trade Price       |
+| Bid Realtime                  | Ex-Dividend Date   | Last Trade Size      | 50 Day Moving Average  |
+| Previous Close                |                    | Average Daily Volume | 200 Day Moving Average |
+| Open                          |                    |                      | One Year Target Price  |
+| 52 Week High                  |                    |                      |                        |
+| 52 Week Low                   |                    |                      |                        |
+| 52 Week Low Change            |                    |                      |                        |
+| 52 Week High Change           |                    |                      |                        |
+| 52 Week Low Change (Percent)  |                    |                      |                        |
+| 52 Week High Change (Percent) |                    |                      |                        |
+| 52 Week Range                 |                    |                      |                        |
 
 <h1>Examples</h1>
 
