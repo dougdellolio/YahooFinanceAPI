@@ -39,7 +39,7 @@ Console.WriteLine($"Previous Close is {apple.PricingData.PreviousClose}");
 ````
 
 ````
-var yahooFinanceClient = new YahooFinance();
+var yahooFinanceClient = new YahooFinance.YahooFinance();
 var apple = yahooFinanceClient.RetrieveStock("AAPL");
 
 Console.WriteLine($"Volume is {apple.VolumeData.CurrentVolume}");
