@@ -29,7 +29,7 @@ This library provides some methods that should make it easy to communicate with 
 <h1>Examples</h1>
 
 ````
-var yahooFinanceClient = new YahooFinance();
+var yahooFinanceClient = new YahooFinance.YahooFinance();
 var apple = yahooFinanceClient.RetrieveStock("AAPL");
 
 Console.WriteLine($"Ask Price is {apple.PricingData.Ask}");
