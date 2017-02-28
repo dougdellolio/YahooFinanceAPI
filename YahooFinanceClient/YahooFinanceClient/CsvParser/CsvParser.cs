@@ -103,7 +103,7 @@ namespace YahooFinanceClient.CsvParser
 
         private DateTime? ConvertStringToDate(string data)
         {
-            if (data == "N/A\n")
+            if (data == "N/A" || data == "N/A\n")
             {
                 return null;
             }
@@ -115,7 +115,7 @@ namespace YahooFinanceClient.CsvParser
 
         private decimal? ConvertStringToDecimal(string data)
         {
-            if (data == "N/A")
+            if (data == "N/A" || data == "N/A\n")
             {
                 return null;
             }

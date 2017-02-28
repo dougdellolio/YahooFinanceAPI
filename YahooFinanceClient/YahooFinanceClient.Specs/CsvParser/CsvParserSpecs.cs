@@ -85,13 +85,13 @@ namespace YahooFinanceClient.Specs.CsvParser
                     .Return("136.66,N/A,N/A,N/A,N/A,135.91,N/A,N/A,N/A,N/A,N/A,N/A,N/A");
 
                 The<IWebClient>().WhenToldTo(p => p.DownloadFile("AAPL", "va5b6k3a2"))
-                    .Return("130000,N/A,N/A,N/A,N/A");
+                    .Return("130000,N/A,N/A\n,N/A\n,N/A");
 
                 The<IWebClient>().WhenToldTo(p => p.DownloadFile("AAPL", "ghl1m3m4t8"))
-                    .Return("N/A,N/A,N/A,N/A,N/A,N/A");
+                    .Return("N/A\n,N/A,N/A,N/A,N/A,N/A\n");
 
                 The<IWebClient>().WhenToldTo(p => p.DownloadFile("AAPL", "ydr1q"))
-                    .Return("N/A,N/A,N/A\n,N/A\n");
+                    .Return("N/A\n,N/A,N/A\n,N/A\n");
             };
 
             Because of = () =>
