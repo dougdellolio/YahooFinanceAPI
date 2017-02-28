@@ -10,8 +10,8 @@ C# Client Library used to interact with the Yahoo Finance API
 
 This library provides some methods that should make it easy to communicate with the Yahoo Finance API
 
-|          Pricing Data         | Dividend Data      | Volume Data          | Average Data           |
-|:-----------------------------:|--------------------|----------------------|------------------------|
+| Pricing Data                  | Dividend Data      | Volume Data          | Average Data           |
+|-------------------------------|--------------------|----------------------|------------------------|
 | Ask                           | Dividend Yield     | Volume               | Day Low                |
 | Bid                           | Dividend per Share | Ask Size             | Day High               |
 | Ask Realtime                  | Dividend Pay Date  | Bid Size             | Last Trade Price       |
