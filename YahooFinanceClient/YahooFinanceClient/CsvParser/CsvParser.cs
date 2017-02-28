@@ -1,7 +1,6 @@
 ﻿using System;
 using YahooFinanceClient.WebClient;
 using YahooFinanceClient.Models;
-using System.Globalization;
 
 namespace YahooFinanceClient.CsvParser
 {
