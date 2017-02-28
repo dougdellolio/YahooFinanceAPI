@@ -1,6 +1,7 @@
 ﻿using System;
 using YahooFinanceClient.WebClient;
 using YahooFinanceClient.Models;
+using System.Globalization;
 
 namespace YahooFinanceClient.CsvParser
 {
@@ -17,11 +18,15 @@ namespace YahooFinanceClient.CsvParser
         {
             var pricingData = RetrievePricingData(ticker);
             var volumeData = RetrieveVolumeData(ticker);
+            var averagesData = RetrieveAverageData(ticker);
+            var dividendData = RetrieveDividendData(ticker);
 
-            return new Stock 
+            return new Stock
             {
                 PricingData = pricingData,
-                VolumeData = volumeData
+                VolumeData = volumeData,
+                AverageData = averagesData,
+                DividendData = dividendData
             };
         }
 
@@ -58,16 +63,58 @@ namespace YahooFinanceClient.CsvParser
             return new VolumeData
             {
                 CurrentVolume = CleanData(splitData[0]),
-                AskSize= CleanData(splitData[1]),
+                AskSize = CleanData(splitData[1]),
                 BidSize = CleanData(splitData[2]),
                 LastTradeSize = CleanData(splitData[3]),
                 AverageDailyVolume = CleanData(splitData[4]),
             };
         }
 
+        private AverageData RetrieveAverageData(string ticker)
+        {
+            var stockData = webClient.DownloadFile(ticker, "ghl1m3m4t8");
+
+            var splitData = stockData.Split(',');
+
+            return new AverageData
+            {
+                DayHigh = CleanData(splitData[0]),
+                DayLow = CleanData(splitData[1]),
+                LastTradePrice = CleanData(splitData[2]),
+                FiftyDayMovingAverage = CleanData(splitData[3]),
+                TwoHundredDayMovingAverage = CleanData(splitData[4]),
+                OneYearTargetPrice = CleanData(splitData[5])
+            };
+        }
+
+        private DividendData RetrieveDividendData(string ticker)
+        {
+            var stockData = webClient.DownloadFile(ticker, "ydr1q");
+
+            var splitData = stockData.Split(',');
+
+            return new DividendData
+            {
+                DividendYield = CleanData(splitData[0]),
+                DividendPerShare = CleanData(splitData[1]),
+                DividendPayDate = ParseDate(splitData[2]),
+                ExDividendDate = ParseDate(splitData[3])
+            };
+        }
+
+        private DateTime? ParseDate(string data)
+        {
+            if (data == "N/A")
+            {
+                return null;
+            }
+
+            return DateTime.Parse(data);
+        }
+
         private decimal? CleanData(string data)
         {
-            if(data == "N/A")
+            if (data == "N/A")
             {
                 return null;
             }
@@ -85,7 +132,7 @@ namespace YahooFinanceClient.CsvParser
             var direction = data.ToCharArray()[0];
             var number = data.Substring(1, data.Length - 2);
 
-            if(direction == '-')
+            if (direction == '-')
             {
                 return -Convert.ToDecimal(number);
             }
