@@ -38,18 +38,18 @@ namespace YahooFinanceClient.CsvParser
 
             return new PricingData
             {
-                Ask = CleanData(splitData[0]),
-                Bid = CleanData(splitData[1]),
-                AskRealTime = CleanData(splitData[2]),
-                BidRealTime = CleanData(splitData[3]),
-                PreviousClose = CleanData(splitData[4]),
-                Open = CleanData(splitData[5]),
-                FiftyTwoWeekHigh = CleanData(splitData[6]),
-                FiftyTwoWeekLow = CleanData(splitData[7]),
-                FiftyTwoWeekLowChange = CleanData(splitData[8]),
-                FiftyTwoWeekHighChange = CleanData(splitData[9]),
-                FiftyTwoWeekLowChangePercent = CleanPercent(splitData[10]),
-                FiftyTwoWeekHighChangePercent = CleanPercent(splitData[11]),
+                Ask = ConvertStringToDecimal(splitData[0]),
+                Bid = ConvertStringToDecimal(splitData[1]),
+                AskRealTime = ConvertStringToDecimal(splitData[2]),
+                BidRealTime = ConvertStringToDecimal(splitData[3]),
+                PreviousClose = ConvertStringToDecimal(splitData[4]),
+                Open = ConvertStringToDecimal(splitData[5]),
+                FiftyTwoWeekHigh = ConvertStringToDecimal(splitData[6]),
+                FiftyTwoWeekLow = ConvertStringToDecimal(splitData[7]),
+                FiftyTwoWeekLowChange = ConvertStringToDecimal(splitData[8]),
+                FiftyTwoWeekHighChange = ConvertStringToDecimal(splitData[9]),
+                FiftyTwoWeekLowChangePercent = ConvertStringToPercentDecimal(splitData[10]),
+                FiftyTwoWeekHighChangePercent = ConvertStringToPercentDecimal(splitData[11]),
                 FiftyTwoWeekRange = splitData[12],
             };
         }
@@ -62,11 +62,11 @@ namespace YahooFinanceClient.CsvParser
 
             return new VolumeData
             {
-                CurrentVolume = CleanData(splitData[0]),
-                AskSize = CleanData(splitData[1]),
-                BidSize = CleanData(splitData[2]),
-                LastTradeSize = CleanData(splitData[3]),
-                AverageDailyVolume = CleanData(splitData[4]),
+                CurrentVolume = ConvertStringToDecimal(splitData[0]),
+                AskSize = ConvertStringToDecimal(splitData[1]),
+                BidSize = ConvertStringToDecimal(splitData[2]),
+                LastTradeSize = ConvertStringToDecimal(splitData[3]),
+                AverageDailyVolume = ConvertStringToDecimal(splitData[4]),
             };
         }
 
@@ -78,12 +78,12 @@ namespace YahooFinanceClient.CsvParser
 
             return new AverageData
             {
-                DayHigh = CleanData(splitData[0]),
-                DayLow = CleanData(splitData[1]),
-                LastTradePrice = CleanData(splitData[2]),
-                FiftyDayMovingAverage = CleanData(splitData[3]),
-                TwoHundredDayMovingAverage = CleanData(splitData[4]),
-                OneYearTargetPrice = CleanData(splitData[5])
+                DayHigh = ConvertStringToDecimal(splitData[0]),
+                DayLow = ConvertStringToDecimal(splitData[1]),
+                LastTradePrice = ConvertStringToDecimal(splitData[2]),
+                FiftyDayMovingAverage = ConvertStringToDecimal(splitData[3]),
+                TwoHundredDayMovingAverage = ConvertStringToDecimal(splitData[4]),
+                OneYearTargetPrice = ConvertStringToDecimal(splitData[5])
             };
         }
 
@@ -95,14 +95,14 @@ namespace YahooFinanceClient.CsvParser
 
             return new DividendData
             {
-                DividendYield = CleanData(splitData[0]),
-                DividendPerShare = CleanData(splitData[1]),
-                DividendPayDate = ParseDate(splitData[2]),
-                ExDividendDate = ParseDate(splitData[3])
+                DividendYield = ConvertStringToDecimal(splitData[0]),
+                DividendPerShare = ConvertStringToDecimal(splitData[1]),
+                DividendPayDate = ConvertStringToDate(splitData[2]),
+                ExDividendDate = ConvertStringToDate(splitData[3])
             };
         }
 
-        private DateTime? ParseDate(string data)
+        private DateTime? ConvertStringToDate(string data)
         {
             if (data == "N/A")
             {
@@ -114,7 +114,7 @@ namespace YahooFinanceClient.CsvParser
             return DateTime.Parse(dateWithoutQuotes);
         }
 
-        private decimal? CleanData(string data)
+        private decimal? ConvertStringToDecimal(string data)
         {
             if (data == "N/A")
             {
@@ -124,7 +124,7 @@ namespace YahooFinanceClient.CsvParser
             return Convert.ToDecimal(data);
         }
 
-        private decimal? CleanPercent(string data)
+        private decimal? ConvertStringToPercentDecimal(string data)
         {
             if (data == "N/A")
             {
