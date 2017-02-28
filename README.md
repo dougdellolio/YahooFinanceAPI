@@ -1,4 +1,4 @@
-# YahooFinanceAPI
+# Yahoo Finance API Client Library
 
 C# Client Library used to interact with the Yahoo Finance API
 
