@@ -12,6 +12,22 @@
 
         public decimal? BookValue { get; set; }
 
-        public string EBITDA { get; set; }
+        public string Ebitda { get; set; }
+
+        public decimal? PricePerSales { get; set; }
+
+        public decimal? PricePerBook { get; set; }
+
+        public decimal? PeRatio { get; set; }
+
+        public decimal? PeRatioRealTime { get; set; }
+
+        public decimal? PegRatio { get; set; }
+
+        public decimal? PricePerEpsEstimateCurrentYear { get; set; }
+
+        public decimal? PricePerEPSEstimateNextYear { get; set; }
+
+        public decimal? ShortRatio { get; set; }
     }
 }

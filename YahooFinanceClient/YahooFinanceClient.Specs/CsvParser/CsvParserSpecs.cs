@@ -26,8 +26,8 @@ namespace YahooFinanceClient.Specs.CsvParser
                 The<IWebClient>().WhenToldTo(p => p.DownloadFile("AAPL", "ydr1q"))
                     .Return("12.1,10.4,\"2/7/2017\",\"2/16/2017\"");
 
-                The<IWebClient>().WhenToldTo(p => p.DownloadFile("AAPL", "ee7e8e9b4j4"))
-                    .Return("8.33,8.94,10.15,1.62,25.19,69.75B");
+                The<IWebClient>().WhenToldTo(p => p.DownloadFile("AAPL", "ee7e8e9b4j4p5p6rr2r5r6r7s7"))
+                    .Return("8.33,8.94,10.15,1.62,25.19,69.75B,3.36,5.55,16.68,11.11,1.69,15.54,13.69,1.67");
             };
 
             Because of = () =>
@@ -84,7 +84,16 @@ namespace YahooFinanceClient.Specs.CsvParser
                 result.RatioData.EPSEstimateNextYear.ShouldEqual(10.15M);
                 result.RatioData.EPSEstimateNextQuarter.ShouldEqual(1.62M);
                 result.RatioData.BookValue.ShouldEqual(25.19M);
-                result.RatioData.EBITDA.ShouldEqual("69.75B");
+                result.RatioData.Ebitda.ShouldEqual("69.75B");
+                result.RatioData.PricePerSales.ShouldEqual(3.36M);
+                result.RatioData.PricePerBook.ShouldEqual(5.55M);
+                result.RatioData.PeRatio.ShouldEqual(16.68M);
+                result.RatioData.PeRatioRealTime.ShouldEqual(11.11M);
+                result.RatioData.PegRatio.ShouldEqual(1.69M);
+                result.RatioData.PricePerEpsEstimateCurrentYear.ShouldEqual(15.54M);
+                result.RatioData.PricePerEPSEstimateNextYear.ShouldEqual(13.69M);
+                result.RatioData.ShortRatio.ShouldEqual(1.67M);
+
             };
         }
 
@@ -95,10 +104,10 @@ namespace YahooFinanceClient.Specs.CsvParser
             Establish context = () =>
             {
                 The<IWebClient>().WhenToldTo(p => p.DownloadFile("AAPL", "abb2b3pokjj5k4j6k5w"))
-                    .Return("136.66,N/A,N/A,N/A,N/A,135.91,N/A,N/A,N/A,N/A,N/A,N/A,N/A");
+                    .Return("N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A");
 
                 The<IWebClient>().WhenToldTo(p => p.DownloadFile("AAPL", "va5b6k3a2"))
-                    .Return("130000,N/A,N/A\n,N/A\n,N/A");
+                    .Return("N/A,N/A,N/A\n,N/A\n,N/A");
 
                 The<IWebClient>().WhenToldTo(p => p.DownloadFile("AAPL", "ghl1m3m4t8"))
                     .Return("N/A\n,N/A,N/A,N/A,N/A,N/A\n");
@@ -106,8 +115,8 @@ namespace YahooFinanceClient.Specs.CsvParser
                 The<IWebClient>().WhenToldTo(p => p.DownloadFile("AAPL", "ydr1q"))
                     .Return("N/A\n,N/A,N/A\n,N/A\n");
 
-                The<IWebClient>().WhenToldTo(p => p.DownloadFile("AAPL", "ee7e8e9b4j4"))
-                    .Return("-4.87,N / A,N / A,0.00,1.93,0.00");
+                The<IWebClient>().WhenToldTo(p => p.DownloadFile("AAPL", "ee7e8e9b4j4p5p6rr2r5r6r7s7"))
+                    .Return("N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A");
             };
 
             Because of = () =>
@@ -115,17 +124,17 @@ namespace YahooFinanceClient.Specs.CsvParser
 
             It should_have_correct_pricing_data = () =>
             {
-                result.PricingData.Ask.ShouldEqual(136.66M);
+                result.PricingData.Ask.ShouldBeNull();
                 result.PricingData.Bid.ShouldBeNull();
                 result.PricingData.AskRealTime.ShouldBeNull();
                 result.PricingData.BidRealTime.ShouldBeNull();
                 result.PricingData.PreviousClose.ShouldBeNull();
-                result.PricingData.Open.ShouldEqual(135.91M);
+                result.PricingData.Open.ShouldBeNull();
             };
 
             It should_have_correct_volume_data = () =>
             {
-                result.VolumeData.CurrentVolume.ShouldEqual(130000M);
+                result.VolumeData.CurrentVolume.ShouldBeNull();
                 result.VolumeData.AskSize.ShouldBeNull();
                 result.VolumeData.BidSize.ShouldBeNull();
                 result.VolumeData.LastTradeSize.ShouldBeNull();
@@ -136,7 +145,7 @@ namespace YahooFinanceClient.Specs.CsvParser
                 result.PricingData.FiftyTwoWeekHighChange.ShouldBeNull();
                 result.PricingData.FiftyTwoWeekLowChangePercent.ShouldBeNull();
                 result.PricingData.FiftyTwoWeekHighChangePercent.ShouldBeNull();
-                result.PricingData.FiftyTwoWeekRange.ShouldEqual("N/A");
+                result.PricingData.FiftyTwoWeekRange.ShouldBeNull();
             };
 
             It should_have_correct_averages_data = () =>
@@ -159,12 +168,20 @@ namespace YahooFinanceClient.Specs.CsvParser
 
             It should_have_correct_ratio_data = () =>
             {
-                result.RatioData.EarningsPerShare.ShouldEqual(-4.87M);
+                result.RatioData.EarningsPerShare.ShouldBeNull();
                 result.RatioData.EPSEstimateCurrentYear.ShouldBeNull();
                 result.RatioData.EPSEstimateNextYear.ShouldBeNull();
-                result.RatioData.EPSEstimateNextQuarter.ShouldEqual(0M);
-                result.RatioData.BookValue.ShouldEqual(1.93M);
-                result.RatioData.EBITDA.ShouldEqual("0.00");
+                result.RatioData.EPSEstimateNextQuarter.ShouldBeNull();
+                result.RatioData.BookValue.ShouldBeNull();
+                result.RatioData.Ebitda.ShouldBeNull();
+                result.RatioData.PricePerSales.ShouldBeNull();
+                result.RatioData.PricePerBook.ShouldBeNull();
+                result.RatioData.PeRatio.ShouldBeNull();
+                result.RatioData.PeRatioRealTime.ShouldBeNull();
+                result.RatioData.PegRatio.ShouldBeNull();
+                result.RatioData.PricePerEpsEstimateCurrentYear.ShouldBeNull();
+                result.RatioData.PricePerEPSEstimateNextYear.ShouldBeNull();
+                result.RatioData.ShortRatio.ShouldBeNull();
             };
         }
     }

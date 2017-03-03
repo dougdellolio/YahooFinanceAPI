@@ -48,6 +48,7 @@
     <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conversion\InputConverter.cs" />
     <Compile Include="CsvParser\CsvParser.cs" />
     <Compile Include="CsvParser\ICsvParser.cs" />
     <Compile Include="Models\AverageData.cs" />
