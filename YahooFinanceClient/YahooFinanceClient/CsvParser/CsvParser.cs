@@ -19,13 +19,15 @@ namespace YahooFinanceClient.CsvParser
             var volumeData = RetrieveVolumeData(ticker);
             var averagesData = RetrieveAverageData(ticker);
             var dividendData = RetrieveDividendData(ticker);
+            var ratioData = RetrieveRatioData(ticker);
 
             return new Stock
             {
                 PricingData = pricingData,
                 VolumeData = volumeData,
                 AverageData = averagesData,
-                DividendData = dividendData
+                DividendData = dividendData,
+                RatioData = ratioData
             };
         }
 
@@ -101,9 +103,29 @@ namespace YahooFinanceClient.CsvParser
             };
         }
 
+        private RatioData RetrieveRatioData(string ticker)
+        {
+            var stockData = webClient.DownloadFile(ticker, "ee7e8e9b4j4");
+
+            var splitData = stockData.Split(',');
+
+            return new RatioData
+            {
+                EarningsPerShare = ConvertStringToDecimal(splitData[0]),
+                EPSEstimateCurrentYear = ConvertStringToDecimal(splitData[1]),
+                EPSEstimateNextYear = ConvertStringToDecimal(splitData[2]),
+                EPSEstimateNextQuarter = ConvertStringToDecimal(splitData[3]),
+                BookValue = ConvertStringToDecimal(splitData[4]),
+                EBITDA = splitData[5]
+            };
+        }
+
         private DateTime? ConvertStringToDate(string data)
         {
-            if (data == "N/A" || data == "N/A\n")
+            if (data == "N/A" || 
+                data == "N/A\n" ||
+                data == "N / A" ||
+                data == "N / a\n")
             {
                 return null;
             }
@@ -115,7 +137,10 @@ namespace YahooFinanceClient.CsvParser
 
         private decimal? ConvertStringToDecimal(string data)
         {
-            if (data == "N/A" || data == "N/A\n")
+            if (data == "N/A" ||
+                data == "N/A\n" ||
+                data == "N / A" ||
+                data == "N / a\n")
             {
                 return null;
             }
@@ -125,7 +150,10 @@ namespace YahooFinanceClient.CsvParser
 
         private decimal? ConvertStringToPercentDecimal(string data)
         {
-            if (data == "N/A")
+            if (data == "N/A" ||
+                data == "N/A\n" ||
+                data == "N / A" ||
+                data == "N / a\n")
             {
                 return null;
             }

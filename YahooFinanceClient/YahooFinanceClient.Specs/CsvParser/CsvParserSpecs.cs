@@ -25,6 +25,9 @@ namespace YahooFinanceClient.Specs.CsvParser
 
                 The<IWebClient>().WhenToldTo(p => p.DownloadFile("AAPL", "ydr1q"))
                     .Return("12.1,10.4,\"2/7/2017\",\"2/16/2017\"");
+
+                The<IWebClient>().WhenToldTo(p => p.DownloadFile("AAPL", "ee7e8e9b4j4"))
+                    .Return("8.33,8.94,10.15,1.62,25.19,69.75B");
             };
 
             Because of = () =>
@@ -73,6 +76,16 @@ namespace YahooFinanceClient.Specs.CsvParser
                 result.DividendData.DividendPayDate.ShouldEqual(new DateTime(2017, 2, 7));
                 result.DividendData.ExDividendDate.ShouldEqual(new DateTime(2017, 2, 16));
             };
+
+            It should_have_correct_ratio_data = () =>
+            {
+                result.RatioData.EarningsPerShare.ShouldEqual(8.33M);
+                result.RatioData.EPSEstimateCurrentYear.ShouldEqual(8.94M);
+                result.RatioData.EPSEstimateNextYear.ShouldEqual(10.15M);
+                result.RatioData.EPSEstimateNextQuarter.ShouldEqual(1.62M);
+                result.RatioData.BookValue.ShouldEqual(25.19M);
+                result.RatioData.EBITDA.ShouldEqual("69.75B");
+            };
         }
 
         public class when_retrieving_a_stock_with_null_values
@@ -92,6 +105,9 @@ namespace YahooFinanceClient.Specs.CsvParser
 
                 The<IWebClient>().WhenToldTo(p => p.DownloadFile("AAPL", "ydr1q"))
                     .Return("N/A\n,N/A,N/A\n,N/A\n");
+
+                The<IWebClient>().WhenToldTo(p => p.DownloadFile("AAPL", "ee7e8e9b4j4"))
+                    .Return("-4.87,N / A,N / A,0.00,1.93,0.00");
             };
 
             Because of = () =>
@@ -139,6 +155,16 @@ namespace YahooFinanceClient.Specs.CsvParser
                 result.DividendData.DividendPerShare.ShouldBeNull();
                 result.DividendData.DividendPayDate.ShouldBeNull();
                 result.DividendData.ExDividendDate.ShouldBeNull();
+            };
+
+            It should_have_correct_ratio_data = () =>
+            {
+                result.RatioData.EarningsPerShare.ShouldEqual(-4.87M);
+                result.RatioData.EPSEstimateCurrentYear.ShouldBeNull();
+                result.RatioData.EPSEstimateNextYear.ShouldBeNull();
+                result.RatioData.EPSEstimateNextQuarter.ShouldEqual(0M);
+                result.RatioData.BookValue.ShouldEqual(1.93M);
+                result.RatioData.EBITDA.ShouldEqual("0.00");
             };
         }
     }

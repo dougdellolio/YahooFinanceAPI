@@ -9,5 +9,7 @@
         public AverageData AverageData { get; set; }
 
         public DividendData DividendData { get; set; }
+
+        public RatioData RatioData { get; set; }
     }
 }

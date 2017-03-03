@@ -53,6 +53,7 @@
     <Compile Include="Models\AverageData.cs" />
     <Compile Include="Models\DividendData.cs" />
     <Compile Include="Models\PricingData.cs" />
+    <Compile Include="Models\RatioData.cs" />
     <Compile Include="Models\Stock.cs" />
     <Compile Include="Models\VolumeData.cs" />
     <Compile Include="WebClient\WebClient.cs" />
