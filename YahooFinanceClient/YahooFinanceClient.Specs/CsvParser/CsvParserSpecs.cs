@@ -93,7 +93,6 @@ namespace YahooFinanceClient.Specs.CsvParser
                 result.RatioData.PricePerEpsEstimateCurrentYear.ShouldEqual(15.54M);
                 result.RatioData.PricePerEPSEstimateNextYear.ShouldEqual(13.69M);
                 result.RatioData.ShortRatio.ShouldEqual(1.67M);
-
             };
         }
 
