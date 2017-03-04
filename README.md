@@ -10,21 +10,22 @@ C# Client Library used to interact with the Yahoo Finance API
 
 This library provides some methods that should make it easy to communicate with the Yahoo Finance API
 
-| Pricing Data                  | Dividend Data      | Volume Data          | Average Data           |
-|-------------------------------|--------------------|----------------------|------------------------|
-| Ask                           | Dividend Yield     | Volume               | Day Low                |
-| Bid                           | Dividend per Share | Ask Size             | Day High               |
-| Ask Realtime                  | Dividend Pay Date  | Bid Size             | Last Trade Price       |
-| Bid Realtime                  | Ex-Dividend Date   | Last Trade Size      | 50 Day Moving Average  |
-| Previous Close                |                    | Average Daily Volume | 200 Day Moving Average |
-| Open                          |                    |                      | One Year Target Price  |
-| 52 Week High                  |                    |                      |                        |
-| 52 Week Low                   |                    |                      |                        |
-| 52 Week Low Change            |                    |                      |                        |
-| 52 Week High Change           |                    |                      |                        |
-| 52 Week Low Change (Percent)  |                    |                      |                        |
-| 52 Week High Change (Percent) |                    |                      |                        |
-| 52 Week Range                 |                    |                      |                        |
+| Pricing Data                  | Dividend Data      | Volume Data          | Average Data           | Ratio Data                        |
+|-------------------------------|--------------------|----------------------|------------------------|-----------------------------------|
+| Ask                           | Dividend Yield     | Volume               | Day Low                | Earnings per Share                |
+| Bid                           | Dividend per Share | Ask Size             | Day High               | EPS Estimate Current Year         |
+| Ask Realtime                  | Dividend Pay Date  | Bid Size             | Last Trade Price       | EPS Estimate Next Year            |
+| Bid Realtime                  | Ex-Dividend Date   | Last Trade Size      | 50 Day Moving Average  | EPS Estimate Next Quarter         |
+| Previous Close                |                    | Average Daily Volume | 200 Day Moving Average | Book Value                        |
+| Open                          |                    |                      | One Year Target Price  | EBITDA                            |
+| 52 Week High                  |                    |                      |                        | Price / Sales                     |
+| 52 Week Low                   |                    |                      |                        | Price / Book                      |
+| 52 Week Low Change            |                    |                      |                        | P/E Ratio                         |
+| 52 Week High Change           |                    |                      |                        | P/E Ratio (Realtime)              |
+| 52 Week Low Change (Percent)  |                    |                      |                        | PEG Ratio                         |
+| 52 Week High Change (Percent) |                    |                      |                        | Price / EPS Estimate Current Year |
+| 52 Week Range                 |                    |                      |                        | Price / EPS Estimate Next Year    |
+|                               |                    |                      |                        | Short Ratio                       |
 
 <h1>Examples</h1>
 
