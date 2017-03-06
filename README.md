@@ -2,7 +2,7 @@
 
 C# Client Library used to interact with the Yahoo Finance API
 
-[![yahoofinanceapi MyGet Build Status](https://www.myget.org/BuildSource/Badge/yahoofinanceapi?identifier=2593272c-49c4-4d40-9e66-28829535ca70)](https://www.myget.org/)
+[![yahoofinanceapi MyGet Build Status](https://www.myget.org/BuildSource/Badge/yahoofinanceapi?identifier=38997d9d-f6c0-4fd6-8f10-caa8cc0eb323)](https://www.myget.org/)
 
 <h1>How to Install</h1>
 
