@@ -1,6 +1,7 @@
 ﻿using YahooFinanceClient.WebClient;
 using YahooFinanceClient.Models;
 using YahooFinanceClient.Conversion;
+using System.Threading.Tasks;
 
 namespace YahooFinanceClient.CsvParser
 {
@@ -8,12 +9,11 @@ namespace YahooFinanceClient.CsvParser
     {
         private readonly IWebClient webClient;
 
-        private readonly InputConverter inputConverter;
+        private readonly InputConverter inputConverter = new InputConverter();
 
         public CsvParser(IWebClient webClient)
         {
             this.webClient = webClient;
-            inputConverter = new InputConverter();
         }
 
         public Stock RetrieveStock(string ticker)
@@ -34,15 +34,15 @@ namespace YahooFinanceClient.CsvParser
             };
         }
 
-        private string[] GetStockData(string ticker, string queryParameters)
+        private async Task<string[]> GetStockData(string ticker, string queryParameters)
         {
-            var stockData = webClient.DownloadFile(ticker, queryParameters);
+            var stockData = await webClient.DownloadFile(ticker, queryParameters);
             return stockData.Split(',');
         }
 
         private PricingData RetrievePricingData(string ticker)
         {
-            var stockData = GetStockData(ticker, "abb2b3pokjj5k4j6k5w");
+            var stockData = GetStockData(ticker, "abb2b3pokjj5k4j6k5w").Result;
 
             return new PricingData
             {
@@ -64,7 +64,7 @@ namespace YahooFinanceClient.CsvParser
 
         private VolumeData RetrieveVolumeData(string ticker)
         {
-            var stockData = GetStockData(ticker, "va5b6k3a2");
+            var stockData = GetStockData(ticker, "va5b6k3a2").Result;
 
             return new VolumeData
             {
@@ -78,7 +78,7 @@ namespace YahooFinanceClient.CsvParser
 
         private AverageData RetrieveAverageData(string ticker)
         {
-            var stockData = GetStockData(ticker, "ghl1m3m4t8");
+            var stockData = GetStockData(ticker, "ghl1m3m4t8").Result;
 
             return new AverageData
             {
@@ -93,7 +93,7 @@ namespace YahooFinanceClient.CsvParser
 
         private DividendData RetrieveDividendData(string ticker)
         {
-            var stockData = GetStockData(ticker, "ydr1q");
+            var stockData = GetStockData(ticker, "ydr1q").Result;
 
             return new DividendData
             {
@@ -106,7 +106,7 @@ namespace YahooFinanceClient.CsvParser
 
         private RatioData RetrieveRatioData(string ticker)
         {
-            var stockData = GetStockData(ticker, "ee7e8e9b4j4p5p6rr2r5r6r7s7");
+            var stockData = GetStockData(ticker, "ee7e8e9b4j4p5p6rr2r5r6r7s7").Result;
 
             return new RatioData
             {

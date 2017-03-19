@@ -1,7 +1,9 @@
-﻿namespace YahooFinanceClient.WebClient
+﻿using System.Threading.Tasks;
+
+namespace YahooFinanceClient.WebClient
 {
     public interface IWebClient
     {
-        string DownloadFile(string stock, string variable);
+        Task<string> DownloadFile(string stock, string variable);
     }
 }

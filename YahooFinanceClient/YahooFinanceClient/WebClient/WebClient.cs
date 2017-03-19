@@ -1,19 +1,21 @@
-﻿namespace YahooFinanceClient.WebClient
+﻿using System.Threading.Tasks;
+
+namespace YahooFinanceClient.WebClient
 {
     public class WebClient : IWebClient
     {
         private const string url = "http://finance.yahoo.com/d/quotes.csv?s=";
 
-        public string DownloadFile(string stock, string variable)
+        public async Task<string> DownloadFile(string stock, string variable)
         {
-            string csvData;
+            string result;
 
-            using (var web = new System.Net.WebClient())
+            using (var webClient = new System.Net.WebClient())
             {
-                csvData = web.DownloadString(url + stock + "&f=" + variable);
+                result = await webClient.DownloadStringTaskAsync(url + stock + "&f=" + variable);
             }
 
-            return csvData;
+            return result;
         }
     }
 }

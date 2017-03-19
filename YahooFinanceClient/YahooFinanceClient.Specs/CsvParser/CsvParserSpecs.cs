@@ -1,6 +1,7 @@
 ﻿using Machine.Fakes;
 using Machine.Specifications;
 using System;
+using System.Threading.Tasks;
 using YahooFinanceClient.Models;
 using YahooFinanceClient.WebClient;
 
@@ -15,19 +16,19 @@ namespace YahooFinanceClient.Specs.CsvParser
             Establish context = () =>
             {
                 The<IWebClient>().WhenToldTo(p => p.DownloadFile("AAPL", "abb2b3pokjj5k4j6k5w"))
-                    .Return("136.66,136.61,130.0,132.0,136.53,135.91,145.91,138.91,131.91,115.91,-66.7%,+45.5%,115.91-130.01");
+                    .Return(Task.FromResult("136.66,136.61,130.0,132.0,136.53,135.91,145.91,138.91,131.91,115.91,-66.7%,+45.5%,115.91-130.01"));
 
                 The<IWebClient>().WhenToldTo(p => p.DownloadFile("AAPL", "va5b6k3a2"))
-                    .Return("100000,120,130,130000,145000");
+                    .Return(Task.FromResult("100000,120,130,130000,145000"));
 
                 The<IWebClient>().WhenToldTo(p => p.DownloadFile("AAPL", "ghl1m3m4t8"))
-                    .Return("136.8,122.2,141.4,136.6,178.8,133.3");
+                    .Return(Task.FromResult("136.8,122.2,141.4,136.6,178.8,133.3"));
 
                 The<IWebClient>().WhenToldTo(p => p.DownloadFile("AAPL", "ydr1q"))
-                    .Return("12.1,10.4,\"2/7/2017\",\"2/16/2017\"");
+                    .Return(Task.FromResult("12.1,10.4,\"2/7/2017\",\"2/16/2017\""));
 
                 The<IWebClient>().WhenToldTo(p => p.DownloadFile("AAPL", "ee7e8e9b4j4p5p6rr2r5r6r7s7"))
-                    .Return("8.33,8.94,10.15,1.62,25.19,69.75B,3.36,5.55,16.68,11.11,1.69,15.54,13.69,1.67");
+                    .Return(Task.FromResult("8.33,8.94,10.15,1.62,25.19,69.75B,3.36,5.55,16.68,11.11,1.69,15.54,13.69,1.67"));
             };
 
             Because of = () =>
@@ -103,19 +104,19 @@ namespace YahooFinanceClient.Specs.CsvParser
             Establish context = () =>
             {
                 The<IWebClient>().WhenToldTo(p => p.DownloadFile("AAPL", "abb2b3pokjj5k4j6k5w"))
-                    .Return("N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A");
+                    .Return(Task.FromResult("N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A"));
 
                 The<IWebClient>().WhenToldTo(p => p.DownloadFile("AAPL", "va5b6k3a2"))
-                    .Return("N/A,N/A,N/A\n,N/A\n,N/A");
+                    .Return(Task.FromResult("N/A,N/A,N/A\n,N/A\n,N/A"));
 
                 The<IWebClient>().WhenToldTo(p => p.DownloadFile("AAPL", "ghl1m3m4t8"))
-                    .Return("N/A\n,N/A,N/A,N/A,N/A,N/A\n");
+                    .Return(Task.FromResult("N/A\n,N/A,N/A,N/A,N/A,N/A\n"));
 
                 The<IWebClient>().WhenToldTo(p => p.DownloadFile("AAPL", "ydr1q"))
-                    .Return("N/A\n,N/A,N/A\n,N/A\n");
+                    .Return(Task.FromResult("N/A\n,N/A,N/A\n,N/A\n"));
 
                 The<IWebClient>().WhenToldTo(p => p.DownloadFile("AAPL", "ee7e8e9b4j4p5p6rr2r5r6r7s7"))
-                    .Return("N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A");
+                    .Return(Task.FromResult("N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A"));
             };
 
             Because of = () =>
