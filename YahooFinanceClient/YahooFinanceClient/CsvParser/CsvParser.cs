@@ -8,12 +8,11 @@ namespace YahooFinanceClient.CsvParser
     {
         private readonly IWebClient webClient;
 
-        private readonly InputConverter inputConverter;
+        private readonly InputConverter inputConverter = new InputConverter();
 
         public CsvParser(IWebClient webClient)
         {
             this.webClient = webClient;
-            inputConverter = new InputConverter();
         }
 
         public Stock RetrieveStock(string ticker)
@@ -37,7 +36,7 @@ namespace YahooFinanceClient.CsvParser
         private string[] GetStockData(string ticker, string queryParameters)
         {
             var stockData = webClient.DownloadFile(ticker, queryParameters);
-            return stockData.Split(',');
+            return stockData.Result.Split(',');
         }
 
         private PricingData RetrievePricingData(string ticker)
